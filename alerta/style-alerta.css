@@ -1,0 +1,177 @@
+/* ==========================================================================
+   OBSERVATÓRIO DO CLIMA — style-alerta.css
+   Estilos EXCLUSIVOS da página alerta/index.html
+   Precisa do style-base.css carregado antes (variáveis, cabeçalho, rodapé,
+   botões e título de seção vêm de lá).
+   ========================================================================== */
+
+/* topo: cartão de alerta + área afetada, lado a lado */
+.topo-alerta {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 20px;
+  background: #FEF6E4;
+  border: 1px solid #F6E2B3;
+  border-radius: var(--raio);
+  padding: 22px 26px;
+  margin-bottom: 28px;
+}
+
+.alerta-detalhe { display: flex; gap: 16px; }
+
+.icone-alerta {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid var(--cor-alerta);
+  color: var(--cor-alerta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.alerta-detalhe h2 { font-size: 20px; margin-bottom: 8px; }
+
+.nivel-selo {
+  display: inline-block;
+  background: var(--cor-alerta);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.alerta-detalhe p { font-size: 13px; color: var(--cor-texto-suave); line-height: 1.5; }
+
+/* área afetada (mapa simplificado) */
+.area-afetada { border-left: 1px solid #F6E2B3; padding-left: 20px; }
+.area-afetada h3 { font-size: 13px; margin-bottom: 10px; color: var(--cor-texto); }
+
+.mapa-wrap { display: flex; align-items: center; gap: 16px; }
+.mapa-svg { flex-shrink: 0; }
+
+.mapa-legenda { display: flex; flex-direction: column; gap: 8px; font-size: 12px; }
+.mapa-legenda span { display: flex; align-items: center; gap: 6px; }
+
+.mapa-nota {
+  font-size: 11px;
+  color: var(--cor-texto-suave);
+  margin-top: 10px;
+  display: flex;
+  gap: 6px;
+}
+
+/* recomendações */
+.recomendacoes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.recomendacao-card {
+  background: var(--cor-cartao);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 18px;
+}
+
+.recomendacao-icone {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(39, 76, 100, 0.08);
+  color: var(--cor-primaria);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  font-size: 17px;
+}
+
+.recomendacao-card h4 { font-size: 13px; margin-bottom: 6px; }
+.recomendacao-card p { font-size: 12px; color: var(--cor-texto-suave); line-height: 1.4; }
+
+/* duas colunas: evolução por hora + preferências de alerta */
+.layout-alerta { display: grid; grid-template-columns: 2fr 1fr; gap: 28px; }
+
+.evolucao-card {
+  background: var(--cor-cartao);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 22px;
+}
+
+.evolucao-card h3 { font-size: 16px; margin-bottom: 14px; color: var(--cor-primaria); }
+
+.numero { font-family: var(--fonte-mono); }
+.umidade-atencao { color: var(--cor-alerta); font-weight: 600; }
+.umidade-critica { color: var(--cor-terciaria); font-weight: 600; }
+
+/* cartão de preferências de alerta, na lateral */
+.preferencias-card {
+  background: var(--cor-cartao);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 20px;
+}
+
+.preferencias-card h3 { font-size: 15px; margin-bottom: 16px; color: var(--cor-primaria); }
+.preferencias-card h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--cor-texto-suave); margin: 16px 0 8px; }
+
+.preferencias-card select {
+  width: 100%;
+  font-family: var(--fonte-corpo);
+  font-size: 13px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto);
+}
+
+.tipo-alerta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.metodos-recebimento { display: flex; gap: 10px; }
+
+.metodo-opcao {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--cor-borda);
+  cursor: pointer;
+}
+
+.metodo-opcao.selecionado {
+  border-color: var(--cor-primaria);
+  background: rgba(39, 76, 100, 0.06);
+  color: var(--cor-primaria);
+  font-weight: 600;
+}
+
+
+/* ===== RESPONSIVO (só do alerta) ===== */
+@media (max-width: 900px) {
+  .topo-alerta { grid-template-columns: 1fr; }
+  .area-afetada { border-left: none; padding-left: 0; border-top: 1px solid #F6E2B3; padding-top: 16px; }
+  .recomendacoes { grid-template-columns: repeat(2, 1fr); }
+  .layout-alerta { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .recomendacoes { grid-template-columns: 1fr; }
+}

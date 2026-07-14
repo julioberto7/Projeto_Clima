@@ -1,0 +1,170 @@
+/* ==========================================================================
+   OBSERVATÓRIO DO CLIMA — style-boletins.css
+   Estilos EXCLUSIVOS da página boletins/index.html
+   Precisa do style-base.css carregado antes (variáveis, cabeçalho, rodapé,
+   botões e título de seção vêm de lá).
+   ========================================================================== */
+
+/* título "Boletins e séries históricas" no topo da página */
+.pagina-titulo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.pagina-titulo-icone {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--cor-cartao);
+  box-shadow: var(--sombra);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.pagina-titulo h2 { font-size: 22px; color: var(--cor-texto); }
+
+/* barra de filtros */
+.filtros {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: var(--cor-cartao);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 14px 18px;
+  margin-bottom: 28px;
+}
+
+.filtro-campo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--cor-texto-suave);
+}
+
+.filtro-campo select,
+.filtro-campo input {
+  font-family: var(--fonte-corpo);
+  font-size: 13px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--cor-borda);
+  background: #fff;
+  color: var(--cor-texto);
+}
+
+/* grade de boletins recentes */
+.boletins-recentes {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.boletim-card {
+  background: var(--cor-cartao);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 18px;
+}
+
+.boletim-icone {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(39, 76, 100, 0.08);
+  color: var(--cor-primaria);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.boletim-card h3 { font-size: 14px; margin-bottom: 4px; }
+.boletim-data { font-size: 12px; color: var(--cor-texto-suave); margin-bottom: 8px; }
+.boletim-desc { font-size: 12px; color: var(--cor-texto-suave); margin-bottom: 12px; line-height: 1.4; }
+.boletim-link { font-size: 12px; font-weight: 600; color: var(--cor-primaria); text-decoration: none; }
+
+/* duas colunas: série histórica + metodologia */
+.layout-boletins {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 28px;
+}
+
+.serie-historica {
+  background: var(--cor-cartao);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 22px;
+}
+
+.serie-historica h3 { font-size: 16px; margin-bottom: 14px; color: var(--cor-primaria); }
+
+.ano-obs { font-size: 11px; color: var(--cor-texto-suave); }
+
+/* célula da tabela com barrinha de valor */
+.celula-barra { min-width: 140px; }
+.valor-barra { font-family: var(--fonte-mono); font-size: 13px; display: block; margin-bottom: 4px; }
+
+.barra-fundo {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--cor-borda);
+  overflow: hidden;
+}
+
+.barra-chuva { height: 100%; border-radius: 3px; background: #4c7fb0; }
+.barra-temp { height: 100%; border-radius: 3px; background: var(--cor-terciaria); }
+
+/* cartão de metodologia */
+.metodologia-card {
+  background: var(--cor-cartao);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.metodologia-card h3 { font-size: 15px; margin-bottom: 14px; color: var(--cor-primaria); }
+
+.metodologia-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.metodologia-item:last-child { margin-bottom: 0; }
+
+.metodologia-icone {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: rgba(39, 76, 100, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.metodologia-item p { font-size: 12px; color: var(--cor-texto-suave); line-height: 1.4; }
+
+
+/* ===== RESPONSIVO (só dos boletins) ===== */
+@media (max-width: 900px) {
+  .boletins-recentes { grid-template-columns: repeat(2, 1fr); }
+  .layout-boletins { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .boletins-recentes { grid-template-columns: 1fr; }
+}

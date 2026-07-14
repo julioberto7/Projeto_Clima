@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boletins e Séries Históricas — Observatório do Clima</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style-base.css">
+<link rel="stylesheet" href="style-boletins.css">
+</head>
+
+<body>
+
+<header class="cabecalho">
+  <div class="marca">
+    <div class="selo"></div>
+    <div>
+      <p class="rotulo-superior">Estação Seridó · RN</p>
+      <h1 class="titulo-destaque">Observatório do Clima</h1>
+    </div>
+  </div>
+  <div class="linha-meta">
+    <div class="item-meta">📍 <strong>Currais Novos</strong></div>
+    <div class="item-meta">🗓 Última atualização <strong>11/07/2026 09:30</strong></div>
+  </div>
+
+  <nav class="nav-paginas">
+    <a href="../painel/index.html">Painel</a>
+    <a href="../boletins/index.html" class="ativo">Boletins e séries históricas</a>
+    <a href="../alerta/index.html">Alerta de baixa umidade</a>
+  </nav>
+</header>
+
+<div class="conteudo">
+
+  <!-- TÍTULO DA PÁGINA -->
+  <div class="pagina-titulo">
+    <div class="pagina-titulo-icone">📄</div>
+    <h2 class="titulo-destaque">Boletins e séries históricas</h2>
+  </div>
+
+  <!-- BARRA DE FILTROS -->
+  <div class="filtros">
+    <div class="filtro-campo">
+      <label for="localidade">📍</label>
+      <select id="localidade">
+        <option>Currais Novos</option>
+        <option>Seridó Potiguar</option>
+        <option>Oeste Potiguar</option>
+        <option>Litoral Leste</option>
+      </select>
+    </div>
+
+    <div class="filtro-campo">
+      <label for="data-de">📅 De</label>
+      <input type="date" id="data-de" value="2015-01-01">
+    </div>
+
+    <div class="filtro-campo">
+      <label for="data-ate">até</label>
+      <input type="date" id="data-ate" value="2026-07-11">
+    </div>
+
+    <button class="botao botao-primario">🔽 Aplicar filtros</button>
+    <button class="botao botao-secundario">⬇ Baixar dados</button>
+  </div>
+
+  <!-- BOLETINS RECENTES -->
+  <div class="titulo-secao"><h2>Boletins recentes</h2><div class="linha-titulo"></div></div>
+
+  <div class="boletins-recentes">
+
+    <div class="boletim-card">
+      <div class="boletim-icone">📄</div>
+      <h3>Boletim Semanal</h3>
+      <p class="boletim-data">24/05/2025</p>
+      <p class="boletim-desc">Resumo das condições climáticas da semana.</p>
+      <a href="#" class="boletim-link">Ver boletim →</a>
+    </div>
+
+    <div class="boletim-card">
+      <div class="boletim-icone">📄</div>
+      <h3>Boletim Mensal</h3>
+      <p class="boletim-data">Abril/2025</p>
+      <p class="boletim-desc">Análise das condições climáticas do mês.</p>
+      <a href="#" class="boletim-link">Ver boletim →</a>
+    </div>
+
+    <div class="boletim-card">
+      <div class="boletim-icone">📄</div>
+      <h3>Boletim Trimestral</h3>
+      <p class="boletim-data">Jan – Mar/2025</p>
+      <p class="boletim-desc">Panorama climático do trimestre.</p>
+      <a href="#" class="boletim-link">Ver boletim →</a>
+    </div>
+
+    <div class="boletim-card">
+      <div class="boletim-icone">📄</div>
+      <h3>Boletim Anual</h3>
+      <p class="boletim-data">2024</p>
+      <p class="boletim-desc">Resumo climático do ano de 2024.</p>
+      <a href="#" class="boletim-link">Ver boletim →</a>
+    </div>
+
+    <div class="boletim-card">
+      <div class="boletim-icone">📄</div>
+      <h3>Monitoramento da Seca</h3>
+      <p class="boletim-data">Maio/2025</p>
+      <p class="boletim-desc">Acompanhamento dos índices de seca.</p>
+      <a href="#" class="boletim-link">Ver boletim →</a>
+    </div>
+
+  </div>
+
+  <!-- SÉRIE HISTÓRICA + METODOLOGIA -->
+  <div class="layout-boletins">
+
+    <!-- COLUNA PRINCIPAL: TABELA -->
+    <div class="serie-historica">
+      <h3 class="titulo-destaque">Série histórica</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Ano</th>
+            <th>💧 Chuva (mm)</th>
+            <th>🌡 Temperatura média (°C)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2025 <span class="ano-obs">(até 24/05)</span></td>
+            <td class="celula-barra">
+              <span class="valor-barra">213,4</span>
+              <div class="barra-fundo"><div class="barra-chuva" style="width:16.8%"></div></div>
+            </td>
+            <td class="celula-barra">
+              <span class="valor-barra">26,8</span>
+              <div class="barra-fundo"><div class="barra-temp" style="width:100%"></div></div>
+            </td>
+          </tr>
+          <tr>
+            <td>2024</td>
+            <td class="celula-barra">
+              <span class="valor-barra">856,7</span>
+              <div class="barra-fundo"><div class="barra-chuva" style="width:67.5%"></div></div>
+            </td>
+            <td class="celula-barra">
+              <span class="valor-barra">26,4</span>
+              <div class="barra-fundo"><div class="barra-temp" style="width:98.5%"></div></div>
+            </td>
+          </tr>
+          <tr>
+            <td>2023</td>
+            <td class="celula-barra">
+              <span class="valor-barra">642,1</span>
+              <div class="barra-fundo"><div class="barra-chuva" style="width:50.6%"></div></div>
+            </td>
+            <td class="celula-barra">
+              <span class="valor-barra">25,9</span>
+              <div class="barra-fundo"><div class="barra-temp" style="width:96.6%"></div></div>
+            </td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td class="celula-barra">
+              <span class="valor-barra">1.102,3</span>
+              <div class="barra-fundo"><div class="barra-chuva" style="width:86.9%"></div></div>
+            </td>
+            <td class="celula-barra">
+              <span class="valor-barra">26,1</span>
+              <div class="barra-fundo"><div class="barra-temp" style="width:97.4%"></div></div>
+            </td>
+          </tr>
+          <tr>
+            <td>2021</td>
+            <td class="celula-barra">
+              <span class="valor-barra">1.268,5</span>
+              <div class="barra-fundo"><div class="barra-chuva" style="width:100%"></div></div>
+            </td>
+            <td class="celula-barra">
+              <span class="valor-barra">25,7</span>
+              <div class="barra-fundo"><div class="barra-temp" style="width:95.9%"></div></div>
+            </td>
+          </tr>
+          <tr>
+            <td>2020</td>
+            <td class="celula-barra">
+              <span class="valor-barra">598,0</span>
+              <div class="barra-fundo"><div class="barra-chuva" style="width:47.1%"></div></div>
+            </td>
+            <td class="celula-barra">
+              <span class="valor-barra">25,3</span>
+              <div class="barra-fundo"><div class="barra-temp" style="width:94.4%"></div></div>
+            </td>
+          </tr>
+          <tr>
+            <td>2019</td>
+            <td class="celula-barra">
+              <span class="valor-barra">438,6</span>
+              <div class="barra-fundo"><div class="barra-chuva" style="width:34.6%"></div></div>
+            </td>
+            <td class="celula-barra">
+              <span class="valor-barra">25,0</span>
+              <div class="barra-fundo"><div class="barra-temp" style="width:93.3%"></div></div>
+            </td>
+          </tr>
+          <tr>
+            <td>2018</td>
+            <td class="celula-barra">
+              <span class="valor-barra">819,4</span>
+              <div class="barra-fundo"><div class="barra-chuva" style="width:64.6%"></div></div>
+            </td>
+            <td class="celula-barra">
+              <span class="valor-barra">24,8</span>
+              <div class="barra-fundo"><div class="barra-temp" style="width:92.5%"></div></div>
+            </td>
+          </tr>
+          <tr>
+            <td>2017</td>
+            <td class="celula-barra">
+              <span class="valor-barra">693,2</span>
+              <div class="barra-fundo"><div class="barra-chuva" style="width:54.6%"></div></div>
+            </td>
+            <td class="celula-barra">
+              <span class="valor-barra">24,6</span>
+              <div class="barra-fundo"><div class="barra-temp" style="width:91.8%"></div></div>
+            </td>
+          </tr>
+          <tr>
+            <td>2016</td>
+            <td class="celula-barra">
+              <span class="valor-barra">1.034,8</span>
+              <div class="barra-fundo"><div class="barra-chuva" style="width:81.6%"></div></div>
+            </td>
+            <td class="celula-barra">
+              <span class="valor-barra">24,7</span>
+              <div class="barra-fundo"><div class="barra-temp" style="width:92.2%"></div></div>
+            </td>
+          </tr>
+          <tr>
+            <td>2015</td>
+            <td class="celula-barra">
+              <span class="valor-barra">627,9</span>
+              <div class="barra-fundo"><div class="barra-chuva" style="width:49.5%"></div></div>
+            </td>
+            <td class="celula-barra">
+              <span class="valor-barra">24,5</span>
+              <div class="barra-fundo"><div class="barra-temp" style="width:91.4%"></div></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- COLUNA LATERAL: METODOLOGIA -->
+    <div>
+      <div class="metodologia-card">
+        <h3 class="titulo-destaque">ⓘ Metodologia</h3>
+
+        <div class="metodologia-item">
+          <div class="metodologia-icone">🛰</div>
+          <p>Dados coletados de estações meteorológicas automáticas instaladas na região.</p>
+        </div>
+
+        <div class="metodologia-item">
+          <div class="metodologia-icone">💧</div>
+          <p>Os valores de chuva correspondem ao acumulado no período informado.</p>
+        </div>
+
+        <div class="metodologia-item">
+          <div class="metodologia-icone">🌡</div>
+          <p>A temperatura média corresponde à média das temperaturas mínimas e máximas registradas no período.</p>
+        </div>
+
+        <div class="metodologia-item">
+          <div class="metodologia-icone">📊</div>
+          <p>Séries históricas sujeitas a revisão após conferência e validação dos dados.</p>
+        </div>
+      </div>
+
+      <button class="botao botao-primario botao-largo">⬇ Baixar série histórica (CSV)</button>
+    </div>
+
+  </div>
+
+</div>
+
+<footer class="rodape">
+  <span>⏱ Atualizações a cada 30 minutos</span>
+  <span>Informação confiável para decisões conscientes.</span>
+  <span>✉ Fale conosco</span>
+</footer>
+
+</body>
+</html>

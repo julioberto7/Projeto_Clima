@@ -1,0 +1,221 @@
+/* ==========================================================================
+   OBSERVATÓRIO DO CLIMA — style-painel.css
+   Estilos EXCLUSIVOS da página painel/index.html
+   Precisa do style-base.css carregado antes (variáveis, cabeçalho, rodapé,
+   botões e título de seção vêm de lá).
+   ========================================================================== */
+
+/* faixa de alerta vermelha */
+.faixa-alerta {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--cor-terciaria);
+  color: #fff;
+  border-radius: var(--raio);
+  padding: 16px 20px;
+  margin-bottom: 28px;
+}
+
+.faixa-alerta .icone { font-size: 20px; }
+.faixa-alerta strong { display: block; margin-bottom: 2px; }
+.faixa-alerta span { font-size: 14px; color: rgba(255, 255, 255, 0.9); }
+
+/* duas colunas: conteúdo principal + coluna lateral */
+.colunas-painel {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 28px;
+}
+
+/* cartões de condição (Temperatura / Chuva / Umidade / Vento) */
+.condicoes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.cartao-condicao {
+  background: var(--cor-cartao);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 18px;
+  border-top: 3px solid var(--cor-primaria);
+}
+
+.cartao-condicao.temperatura { border-top-color: var(--cor-terciaria); }
+.cartao-condicao.chuva { border-top-color: #4c7fb0; }
+.cartao-condicao.umidade { border-top-color: var(--cor-secundaria); }
+.cartao-condicao.vento { border-top-color: var(--cor-primaria); }
+
+.cartao-condicao .rotulo {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+  margin-bottom: 10px;
+}
+
+.medidor-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+/* gauge circular: gira o SVG -90° pra o traço começar no topo, não na direita */
+.medidor-arco { transform: rotate(-90deg); flex-shrink: 0; }
+
+.medidor-arco .trilho {
+  fill: none;
+  stroke: var(--cor-borda);
+  stroke-width: 5;
+}
+
+.medidor-arco .valor {
+  fill: none;
+  stroke: var(--cor-primaria);
+  stroke-width: 5;
+}
+
+.cartao-condicao.temperatura .medidor-arco .valor { stroke: var(--cor-terciaria); }
+.cartao-condicao.chuva .medidor-arco .valor { stroke: #4c7fb0; }
+.cartao-condicao.umidade .medidor-arco .valor { stroke: var(--cor-secundaria); }
+
+/* valor numérico e unidade ao lado do medidor */
+.medidor-wrap .valor { font-size: 22px; font-weight: 700; }
+.medidor-wrap .unidade { font-size: 13px; color: var(--cor-texto-suave); margin-left: 2px; }
+
+/* linha de baixo do cartão (ex: Máx/Mín) */
+.cartao-condicao .rodape-cartao {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--cor-texto-suave);
+  border-top: 1px solid var(--cor-borda);
+  padding-top: 8px;
+}
+
+/* gráfico semanal */
+.cartao-grafico {
+  background: var(--cor-cartao);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 22px;
+  margin-bottom: 28px;
+}
+
+.cabecalho-grafico {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.cabecalho-grafico h3 { font-size: 16px; color: var(--cor-primaria); }
+
+.legenda { display: flex; gap: 16px; font-size: 12px; color: var(--cor-texto-suave); }
+.legenda span { display: flex; align-items: center; gap: 6px; }
+.legenda i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+
+/* cores batendo com as usadas dentro do próprio SVG (fill="#C1502E" etc.) */
+.legenda .maxima i { background: #C1502E; }
+.legenda .minima i { background: #1F3A3D; }
+.legenda .chuva i { background: #E3A23D; }
+
+.rotulos-dias {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--cor-texto-suave);
+  margin-top: 8px;
+  padding: 0 8px;
+}
+
+/* tabela de previsão */
+.cartao-previsao {
+  background: var(--cor-cartao);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 22px;
+}
+
+.cartao-previsao h3 { font-size: 16px; margin-bottom: 14px; color: var(--cor-primaria); }
+
+.numero { font-family: var(--fonte-mono); }
+.celula-temp .maxima { color: #C1502E; font-weight: 600; }
+.celula-temp .minima { color: #1F3A3D; font-weight: 600; }
+
+/* coluna lateral: situação regional */
+.cartao-lateral {
+  background: var(--cor-cartao);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.cartao-lateral h3 { font-size: 15px; margin-bottom: 14px; color: var(--cor-primaria); }
+
+.linha-regiao {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.linha-regiao:last-of-type { border-bottom: none; }
+
+.nome-regiao {
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.ponto { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.ponto.normal { background: var(--cor-secundaria); }
+.ponto.atencao { background: var(--cor-alerta); }
+.ponto.alerta { background: var(--cor-terciaria); }
+
+.descricao-regiao { font-size: 12px; color: var(--cor-texto-suave); }
+
+.selo-status {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.selo-status.normal { background: rgba(46, 204, 113, 0.15); color: #1e8a4e; }
+.selo-status.atencao { background: rgba(227, 162, 61, 0.18); color: #a5701f; }
+.selo-status.alerta { background: rgba(227, 92, 92, 0.15); color: var(--cor-terciaria); }
+
+.nota { font-size: 12px; color: var(--cor-texto-suave); margin-top: 8px; }
+
+.nota-rodape {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--cor-texto-suave);
+  line-height: 1.5;
+}
+
+.nota-rodape a { color: var(--cor-primaria); text-decoration: none; font-weight: 600; }
+
+
+/* ===== RESPONSIVO (só do painel) ===== */
+@media (max-width: 900px) {
+  .colunas-painel { grid-template-columns: 1fr; }
+  .condicoes { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .condicoes { grid-template-columns: 1fr; }
+}

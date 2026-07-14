@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alerta de Baixa Umidade — Observatório do Clima</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style-base.css">
+<link rel="stylesheet" href="style-alerta.css">
+</head>
+
+<body>
+
+<header class="cabecalho">
+  <div class="marca">
+    <div class="selo"></div>
+    <div>
+      <p class="rotulo-superior">Estação Seridó · RN</p>
+      <h1 class="titulo-destaque">Observatório do Clima</h1>
+    </div>
+  </div>
+  <div class="linha-meta">
+    <div class="item-meta">📍 <strong>Currais Novos</strong></div>
+    <div class="item-meta">🗓 Última atualização <strong>11/07/2026 09:30</strong></div>
+  </div>
+
+  <nav class="nav-paginas">
+    <a href="../painel/index.html">Painel</a>
+    <a href="../boletins/index.html">Boletins e séries históricas</a>
+    <a href="../alerta/index.html" class="ativo">Alerta de baixa umidade</a>
+  </nav>
+</header>
+
+<div class="conteudo">
+
+  <!-- TOPO: DETALHE DO ALERTA + ÁREA AFETADA -->
+  <div class="topo-alerta">
+
+    <div class="alerta-detalhe">
+      <div class="icone-alerta">💧</div>
+      <div>
+        <h2 class="titulo-destaque">Alerta de baixa umidade</h2>
+        <span class="nivel-selo">Nível: atenção</span>
+        <p>A umidade do ar está baixa. Ar seco pode causar desconforto e riscos à saúde.</p>
+      </div>
+    </div>
+
+    <div class="area-afetada">
+      <h3>Área afetada</h3>
+      <div class="mapa-wrap">
+        <svg class="mapa-svg" width="150" height="90" viewBox="0 0 150 90">
+          <!-- forma simplificada do estado, dividida em regiões aproximadas -->
+          <path d="M10,55 L35,35 L55,40 L58,60 L35,75 Z" fill="#E3A23D"></path>
+          <path d="M55,40 L90,30 L120,35 L125,55 L100,70 L58,60 Z" fill="#F4CE7C"></path>
+          <path d="M120,35 L140,40 L138,58 L125,55 Z" fill="#A8D5A2"></path>
+        </svg>
+        <div class="mapa-legenda">
+          <span>🟠 Alerta</span>
+          <span>🟡 Atenção</span>
+          <span>🟢 Normal</span>
+        </div>
+      </div>
+      <div class="mapa-nota">ⓘ Dados regionais atualizados diariamente.</div>
+    </div>
+
+  </div>
+
+  <!-- RECOMENDAÇÕES -->
+  <div class="titulo-secao"><h2>Recomendações</h2><div class="linha-titulo"></div></div>
+
+  <div class="recomendacoes">
+    <div class="recomendacao-card">
+      <div class="recomendacao-icone">💧</div>
+      <h4>Hidrate-se bem</h4>
+      <p>Beba bastante água ao longo do dia, mesmo sem sede.</p>
+    </div>
+    <div class="recomendacao-card">
+      <div class="recomendacao-icone">🌫</div>
+      <h4>Umidifique ambientes</h4>
+      <p>Use umidificadores ou toalhas molhadas para aumentar a umidade do ar.</p>
+    </div>
+    <div class="recomendacao-card">
+      <div class="recomendacao-icone">☀️</div>
+      <h4>Evite exposição ao sol</h4>
+      <p>Evite atividades físicas intensas entre 10h e 16h.</p>
+    </div>
+    <div class="recomendacao-card">
+      <div class="recomendacao-icone">😷</div>
+      <h4>Cuide da saúde</h4>
+      <p>Ar seco pode causar irritações. Redobre os cuidados com crianças e idosos.</p>
+    </div>
+  </div>
+
+  <!-- EVOLUÇÃO POR HORA + RECEBER ALERTAS -->
+  <div class="layout-alerta">
+
+    <div class="evolucao-card">
+      <h3 class="titulo-destaque">Evolução por hora</h3>
+      <table>
+        <thead>
+          <tr><th>Hora</th><th>Umidade (%)</th><th>Temperatura (°C)</th><th>Vento (km/h)</th><th>Condição</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>08:00</td><td class="numero umidade-atencao">28</td><td class="numero">28,2</td><td class="numero">16 E</td><td>💨 Seco</td></tr>
+          <tr><td>09:00</td><td class="numero umidade-atencao">24</td><td class="numero">29,6</td><td class="numero">18 E</td><td>💨 Seco</td></tr>
+          <tr><td>10:00</td><td class="numero umidade-critica">21</td><td class="numero">31,0</td><td class="numero">19 E</td><td>💨 Seco</td></tr>
+          <tr><td>11:00</td><td class="numero umidade-critica">20</td><td class="numero">32,1</td><td class="numero">20 E</td><td>💨 Seco</td></tr>
+          <tr><td>12:00</td><td class="numero umidade-critica">18</td><td class="numero">32,8</td><td class="numero">21 E</td><td>💨 Seco</td></tr>
+          <tr><td>13:00</td><td class="numero umidade-critica">17</td><td class="numero">33,0</td><td class="numero">22 E</td><td>💨 Seco</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <div class="preferencias-card">
+        <h3 class="titulo-destaque">Receber alertas</h3>
+
+        <h4>Localidade</h4>
+        <select>
+          <option>Currais Novos - RN</option>
+          <option>Seridó Potiguar - RN</option>
+          <option>Oeste Potiguar - RN</option>
+        </select>
+
+        <h4>Tipos de alerta</h4>
+        <label class="tipo-alerta"><input type="checkbox" checked> Baixa umidade</label>
+        <label class="tipo-alerta"><input type="checkbox" checked> Temperatura extrema (máxima e mínima)</label>
+        <label class="tipo-alerta"><input type="checkbox"> Chuvas intensas</label>
+
+        <h4>Como deseja receber</h4>
+        <div class="metodos-recebimento">
+          <div class="metodo-opcao selecionado">✉ E-mail</div>
+          <div class="metodo-opcao">📞 SMS</div>
+        </div>
+
+        <button class="botao botao-primario botao-largo" style="margin-top:18px;">Salvar preferências</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer class="rodape">
+  <span>⏱ Atualizações a cada 30 minutos</span>
+  <span>Informação confiável para decisões conscientes.</span>
+  <span>✉ Fale conosco</span>
+</footer>
+
+</body>
+</html>
