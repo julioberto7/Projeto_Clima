@@ -45,7 +45,11 @@
 
   <!-- TÍTULO DA PÁGINA -->
   <div class="pagina-titulo">
-    <div class="pagina-titulo-icone" aria-hidden="true">📄</div>
+    <div class="pagina-titulo-icone" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
+            <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+        </svg> 
+    </div>
     <h2 class="titulo-destaque">Boletins e séries históricas</h2>
   </div>
 
@@ -53,7 +57,7 @@
   <search>
     <form class="filtros" aria-label="Filtrar boletins por localidade e período">
       <div class="filtro-campo">
-        <label for="localidade">📍 Localidade</label>
+        <label for="localidade"> Localidade</label>
         <select id="localidade" name="localidade">
           <option>Currais Novos</option>
           <option>Lagoa Nova</option>
@@ -76,7 +80,7 @@
       </div>
 
       <div class="filtro-campo">
-        <label for="data-de">📅 De</label>
+        <label for="data-de">De</label>
         <input type="date" id="data-de" name="data-de" value="2015-01-01">
       </div>
 
@@ -85,7 +89,7 @@
         <input type="date" id="data-ate" name="data-ate" value="2026-07-11">
       </div>
 
-      <button type="submit" class="botao botao-primario">🔽 Aplicar filtros</button>
+      <button type="submit" class="botao botao-primario"> Aplicar filtros</button>
       <button type="button" class="botao botao-secundario">⬇ Baixar dados</button>
     </form>
   </search>
@@ -180,8 +184,8 @@
         <thead>
           <tr>
             <th scope="col">Ano</th>
-            <th scope="col">💧 Chuva (mm)</th>
-            <th scope="col">🌡 Temperatura média (°C)</th>
+            <th scope="col"> Chuva (mm)</th>
+            <th scope="col"> Temperatura média (°C)</th>
           </tr>
         </thead>
         <tbody>
@@ -189,7 +193,7 @@
             <th scope="row">2025 <span class="ano-obs">(até 24/05)</span></th>
             <td class="celula-barra">
               <span class="valor-barra">213,4</span>
-              <div class="barra-fundo"><div class="barra-chuva" style="width:16.8%"></div></div>
+              <div class="barra-fundo"><div class="barra-chuva" style="width:100%"></div></div>
             </td>
             <td class="celula-barra">
               <span class="valor-barra">26,8</span>
@@ -313,26 +317,43 @@
     <!-- COLUNA LATERAL: METODOLOGIA -->
     <aside aria-label="Metodologia e download da série histórica">
       <div class="metodologia-card">
-        <h3 class="titulo-destaque">ⓘ Metodologia</h3>
+        <h3 class="titulo-destaque"> Metodologia</h3>
 
         <ul class="lista-sem-marcador">
           <li class="metodologia-item">
-            <div class="metodologia-icone" aria-hidden="true">🛰</div>
+            <div class="metodologia-icone" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas-fill" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="m8 0 .412.01A7.97 7.97 0 0 1 13.29 2a8.04 8.04 0 0 1 2.548 4.382 8 8 0 1 1-15.674 0 8 8 0 0 1 1.361-3.078A8 8 0 0 1 2.711 2 7.96 7.96 0 0 1 8 0m0 1a7 7 0 0 0-5.958 3.324C2.497 6.192 6.669 7.827 6.5 8c-.5.5-1.034.884-1 1.5.07 1.248 2.259.774 2.5 2 .202 1.032-1.051 3 0 3 1.5-.5 3.798-3.186 4-5 .138-1.242-2-2-3.5-2.5-.828-.276-1.055.648-1.5.5S4.5 5.5 5.5 5s1 0 1.5.5c1 .5.5-1 1-1.5.838-.838 3.16-1.394 3.605-2.001A6.97 6.97 0 0 0 8 1"/>
+</svg>
+            </div>
             <p>Dados coletados de estações meteorológicas automáticas instaladas na região.</p>
           </li>
 
           <li class="metodologia-item">
-            <div class="metodologia-icone" aria-hidden="true">💧</div>
+            <div class="metodologia-icone" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moisture" viewBox="0 0 16 16">
+  <path d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a29 29 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a29 29 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001zm0 0-.364-.343zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267"/>
+</svg>
+            </div>
             <p>Os valores de chuva correspondem ao acumulado no período informado.</p>
           </li>
 
           <li class="metodologia-item">
-            <div class="metodologia-icone" aria-hidden="true">🌡</div>
+            <div class="metodologia-icone" aria-hidden="true">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-thermometer-half" viewBox="0 0 16 16">
+  <path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V6.5a.5.5 0 0 1 1 0v4.585a1.5 1.5 0 0 1 1 1.415"/>
+  <path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1"/>
+</svg>
+            </div>
             <p>A temperatura média corresponde à média das temperaturas mínimas e máximas registradas no período.</p>
           </li>
 
           <li class="metodologia-item">
-            <div class="metodologia-icone" aria-hidden="true">📊</div>
+            <div class="metodologia-icone" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-reception-2" viewBox="0 0 16 16">
+  <path d="M0 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5zm4 5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
+</svg>
+            </div>
             <p>Séries históricas sujeitas a revisão após conferência e validação dos dados.</p>
           </li>
         </ul>
@@ -347,9 +368,14 @@
 
 <footer class="rodape">
   <ul class="lista-sem-marcador" style="display:flex; flex-direction:column; gap:inherit; margin:0;">
-    <li>⏱ Atualizações a cada 30 minutos</li>
+    <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+  <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+</svg> Atualizações a cada 30 minutos</li>
     <li>Informação confiável para decisões conscientes.</li>
-    <li>✉ Fale conosco</li>
+    <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+</svg>Fale conosco</li>
   </ul>
 </footer>
 
