@@ -35,3 +35,11 @@ navegador para lidar (validação, foco, tipos de campo) — usar o Bootstrap
 nessa parte evita reescrever do zero um comportamento que o framework já
 resolve bem, enquanto o resto do projeto continua demonstrando CSS autoral
 (que é o objetivo principal da disciplina).
+
+links utilizados: 
+
+orientações do Ministério da Saúde → https://www.gov.br/saude/pt-br
+
+Instituto Nacional de Meteorologia → https://portal.inmet.gov.br/
+
+
