@@ -1,11 +1,9 @@
 
-
-/* título "Boletins e séries históricas" no topo da página */
 .pagina-titulo {
   display: flex;
   align-items: center;
-  gap: var(--espaco-md);
-  margin-bottom: var(--espaco-lg);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .pagina-titulo-icone {
@@ -28,18 +26,18 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: var(--espaco-sm);
+  gap: 0.75rem;
   background: var(--cor-cartao);
   border-radius: var(--raio);
   box-shadow: var(--sombra);
-  padding: var(--espaco-md);
-  margin-bottom: var(--espaco-xl);
+  padding: 1rem;
+  margin-bottom: 2rem;
 }
 
 .filtro-campo {
   display: flex;
   align-items: center;
-  gap: var(--espaco-xs);
+  gap: 0.5rem;
   font-size: 0.8rem;
   color: var(--cor-texto-suave);
 }
@@ -49,7 +47,7 @@
   width: 100%;
   font-family: var(--fonte-corpo);
   font-size: 0.8rem;
-  padding: var(--espaco-xs) var(--espaco-sm);
+  padding: 0.5rem 0.75rem;
   border-radius: var(--raio-sm);
   border: 1px solid var(--cor-borda);
   background: #fff;
@@ -64,15 +62,15 @@
 .boletins-recentes {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--espaco-md);
-  margin-bottom: var(--espaco-xl);
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .boletim-card {
   background: var(--cor-cartao);
   border-radius: var(--raio);
   box-shadow: var(--sombra);
-  padding: var(--espaco-md);
+  padding: 1rem;
   transition: transform var(--transicao-rapida), box-shadow var(--transicao-rapida);
 }
 
@@ -90,12 +88,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--espaco-sm);
+  margin-bottom: 0.75rem;
 }
 
 .boletim-card h3 { font-size: 0.875rem; margin-bottom: 0.25rem; }
-.boletim-data { font-size: 0.75rem; color: var(--cor-texto-suave); margin-bottom: var(--espaco-xs); }
-.boletim-desc { font-size: 0.75rem; color: var(--cor-texto-suave); margin-bottom: var(--espaco-sm); line-height: 1.4; }
+.boletim-data { font-size: 0.75rem; color: var(--cor-texto-suave); margin-bottom: 0.5rem; }
+.boletim-desc { font-size: 0.75rem; color: var(--cor-texto-suave); margin-bottom: 0.75rem; line-height: 1.4; }
 
 .boletim-link {
   font-size: 0.75rem;
@@ -112,18 +110,18 @@
 .layout-boletins {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--espaco-xl);
+  gap: 2rem;
 }
 
 .serie-historica {
   background: var(--cor-cartao);
   border-radius: var(--raio);
   box-shadow: var(--sombra);
-  padding: var(--espaco-lg);
+  padding: 1.5rem;
   overflow-x: auto;
 }
 
-.serie-historica h3 { font-size: 1rem; margin-bottom: var(--espaco-sm); color: var(--cor-primaria); }
+.serie-historica h3 { font-size: 1rem; margin-bottom: 0.75rem; color: var(--cor-primaria); }
 
 .ano-obs { font-size: 0.7rem; color: var(--cor-texto-suave); }
 
@@ -147,17 +145,17 @@
   background: var(--cor-cartao);
   border-radius: var(--raio);
   box-shadow: var(--sombra);
-  padding: var(--espaco-md);
-  margin-bottom: var(--espaco-md);
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
-.metodologia-card h3 { font-size: 0.95rem; margin-bottom: var(--espaco-sm); color: var(--cor-primaria); }
+.metodologia-card h3 { font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--cor-primaria); }
 
 .metodologia-item {
   display: flex;
-  gap: var(--espaco-sm);
+  gap: 0.75rem;
   align-items: flex-start;
-  margin-bottom: var(--espaco-sm);
+  margin-bottom: 0.75rem;
 }
 
 .metodologia-item:last-child { margin-bottom: 0; }
