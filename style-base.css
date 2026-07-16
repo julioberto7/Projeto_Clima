@@ -214,10 +214,7 @@ tbody tr:last-child td { border-bottom: none; }
 
 
 
-/* ==========================================================================
-   8. RESPONSIVO (mobile-first: as regras abaixo ACRESCENTAM comportamento
-   conforme a tela cresce; a base acima já cobre o celular)
-   ========================================================================== */
+
 
 /* tablet (>= 600px) */
 @media (min-width: 37.5em) {

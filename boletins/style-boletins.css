@@ -175,9 +175,7 @@
 .metodologia-item p { font-size: 0.75rem; color: var(--cor-texto-suave); line-height: 1.4; }
 
 
-/* ==========================================================================
-   RESPONSIVO (mobile-first: acrescentando colunas conforme a tela cresce)
-   ========================================================================== */
+
 
 /* tablet (>= 600px) */
 @media (min-width: 37.5em) {

@@ -229,7 +229,3 @@ path[id^="meso_"]:hover {
     stroke-width: 500; /* Destaca as bordas */
 }
 
-/* 2. Estilizar uma mesorregião específica pelo ID (Ex: Leste Potiguar, Central, etc.) */
-#meso_2304 {
-    /* fill: #4CAF50; */ /* Remova as barras se quiser pintar esta região de verde por padrão */
-}
