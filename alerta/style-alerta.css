@@ -1,4 +1,15 @@
+/* ==========================================================================
+   OBSERVATÓRIO DO CLIMA — style-alerta.css
+   Estilos EXCLUSIVOS da página alerta/index.html
+   Precisa do style-base.css carregado antes.
+   Mobile-first: base = celular; min-width acrescenta colunas.
 
+   NOTA SOBRE BOOTSTRAP: o formulário "Receber alertas" desta página usa
+   classes do Bootstrap (.form-control, .form-check, .btn) para os campos
+   e o botão de envio — ver README.md para o detalhamento do que é
+   Bootstrap e o que é autoral. As regras abaixo SÓ ajustam detalhes
+   (cor de foco, espaçamento) que o Bootstrap não cobre sozinho.
+   ========================================================================== */
 
 /* topo: cartão de alerta + área afetada — 1 coluna no celular */
 .topo-alerta {
@@ -251,20 +262,6 @@
   .area-afetada { border-top: none; padding-top: 0; border-left: 1px solid #F6E2B3; padding-left: var(--espaco-lg); }
   .recomendacoes { grid-template-columns: repeat(4, 1fr); }
   .layout-alerta { grid-template-columns: 2fr 1fr; }
-}
-
-/* Container para deixar o mapa responsivo na tela */
-.mapa-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Estilização padrão para o SVG */
-svg {
-    width: 100%;
-    height: auto;
-    display: block;
 }
 
 /* --- EXEMPLO DE ESTILIZAÇÃO INTERATIVA --- */
