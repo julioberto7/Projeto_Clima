@@ -9,13 +9,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style-base.css">
 <link rel="stylesheet" href="style-boletins.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
 
 <header class="cabecalho">
   <div class="marca">
-    <div class="selo"></div>
+    <div class="selo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="80" height="50" fill="currentColor" class="bi bi-cloud-sun" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M7 8a3.5 3.5 0 0 1 3.5 3.555.5.5 0 0 0 .624.492A1.503 1.503 0 0 1 13 13.5a1.5 1.5 0 0 1-1.5 1.5H3a2 2 0 1 1 .1-3.998.5.5 0 0 0 .51-.375A3.5 3.5 0 0 1 7 8m4.473 3a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5z"/>
+        <path d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708zm1.734 3.374a2 2 0 1 1 3.296 2.198q.3.423.516.898a3 3 0 1 0-4.84-3.225q.529.017 1.028.129m4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377M14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"/>
+      </svg>
+    </div>
     <div>
       <p class="rotulo-superior">Estação Seridó · RN</p>
       <h1 class="titulo-destaque">Observatório do Clima</h1>
@@ -26,111 +32,161 @@
     <div class="item-meta">🗓 Última atualização <strong>11/07/2026 09:30</strong></div>
   </div>
 
-  <nav class="nav-paginas">
-    <a href="../painel/index.html">Painel</a>
-    <a href="../boletins/index.html" class="ativo">Boletins e séries históricas</a>
-    <a href="../alerta/index.html">Alerta de baixa umidade</a>
+  <nav class="nav-paginas" aria-label="Navegação principal">
+    <ul class="lista-sem-marcador" style="display:flex; flex-wrap:wrap; gap:inherit; margin:0;">
+      <li><a href="../painel/index.html">Painel</a></li>
+      <li><a href="../boletins/index.html" class="ativo" aria-current="page">Boletins e séries históricas</a></li>
+      <li><a href="../alerta/index.html">Alerta de baixa umidade</a></li>
+    </ul>
   </nav>
 </header>
 
-<div class="conteudo">
+<main class="conteudo">
 
   <!-- TÍTULO DA PÁGINA -->
   <div class="pagina-titulo">
-    <div class="pagina-titulo-icone">📄</div>
+    <div class="pagina-titulo-icone" aria-hidden="true">📄</div>
     <h2 class="titulo-destaque">Boletins e séries históricas</h2>
   </div>
 
   <!-- BARRA DE FILTROS -->
-  <div class="filtros">
-    <div class="filtro-campo">
-      <label for="localidade">📍</label>
-      <select id="localidade">
-        <option>Currais Novos</option>
-        <option>Seridó Potiguar</option>
-        <option>Oeste Potiguar</option>
-        <option>Litoral Leste</option>
-      </select>
-    </div>
+  <search>
+    <form class="filtros" aria-label="Filtrar boletins por localidade e período">
+      <div class="filtro-campo">
+        <label for="localidade">📍 Localidade</label>
+        <select id="localidade" name="localidade">
+          <option>Currais Novos</option>
+          <option>Lagoa Nova</option>
+          <option>Cerro Corá</option>
+          <option>Natal</option>
+          <option> Macaíba</option>
+          <option>Macau</option>
+          <option>Santa Cruz</option>
+          <option>Santana do Matos</option>
+          <option>Jardim do Seridó</option>
+          <option>João Câmara</option>
+          <option>Jucurutu</option>
+          <option>Acari</option>
+          <option>Bodó</option>
+          <option>Canguaretama</option>
+          <option>Campo Redondo</option>
+          <option>Ceará-Mirim</option>
+          <option>Caiçara do Norte</option>
+        </select>
+      </div>
 
-    <div class="filtro-campo">
-      <label for="data-de">📅 De</label>
-      <input type="date" id="data-de" value="2015-01-01">
-    </div>
+      <div class="filtro-campo">
+        <label for="data-de">📅 De</label>
+        <input type="date" id="data-de" name="data-de" value="2015-01-01">
+      </div>
 
-    <div class="filtro-campo">
-      <label for="data-ate">até</label>
-      <input type="date" id="data-ate" value="2026-07-11">
-    </div>
+      <div class="filtro-campo">
+        <label for="data-ate">até</label>
+        <input type="date" id="data-ate" name="data-ate" value="2026-07-11">
+      </div>
 
-    <button class="botao botao-primario">🔽 Aplicar filtros</button>
-    <button class="botao botao-secundario">⬇ Baixar dados</button>
-  </div>
+      <button type="submit" class="botao botao-primario">🔽 Aplicar filtros</button>
+      <button type="button" class="botao botao-secundario">⬇ Baixar dados</button>
+    </form>
+  </search>
 
   <!-- BOLETINS RECENTES -->
-  <div class="titulo-secao"><h2>Boletins recentes</h2><div class="linha-titulo"></div></div>
+  <section aria-labelledby="titulo-boletins">
+    <div class="titulo-secao"><h2 id="titulo-boletins">Boletins recentes</h2><div class="linha-titulo"></div></div>
 
-  <div class="boletins-recentes">
+    <ul class="boletins-recentes lista-sem-marcador">
 
-    <div class="boletim-card">
-      <div class="boletim-icone">📄</div>
-      <h3>Boletim Semanal</h3>
-      <p class="boletim-data">24/05/2025</p>
-      <p class="boletim-desc">Resumo das condições climáticas da semana.</p>
-      <a href="#" class="boletim-link">Ver boletim →</a>
-    </div>
+      <li>
+        <article class="boletim-card">
+          <div class="boletim-icone" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
+            <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+        </svg>     <!-- icone de calendario retirado do bootstrep -->
+          </div>
+          <h3>Boletim Semanal</h3>
+          <p class="boletim-data">24/05/2025</p>
+          <p class="boletim-desc">Resumo das condições climáticas da semana.</p>
+          <a href="#" class="boletim-link">Ver boletim →</a>
+        </article>
+      </li>
 
-    <div class="boletim-card">
-      <div class="boletim-icone">📄</div>
-      <h3>Boletim Mensal</h3>
-      <p class="boletim-data">Abril/2025</p>
-      <p class="boletim-desc">Análise das condições climáticas do mês.</p>
-      <a href="#" class="boletim-link">Ver boletim →</a>
-    </div>
+      <li>
+        <article class="boletim-card">
+          <div class="boletim-icone" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
+            <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+          </svg>     <!-- icone de calendario retirado do bootstrep -->
+          </div>
+          <h3>Boletim Mensal</h3>
+          <p class="boletim-data">Abril/2025</p>
+          <p class="boletim-desc">Análise das condições climáticas do mês.</p>
+          <a href="#" class="boletim-link">Ver boletim →</a>
+        </article>
+      </li>
 
-    <div class="boletim-card">
-      <div class="boletim-icone">📄</div>
-      <h3>Boletim Trimestral</h3>
-      <p class="boletim-data">Jan – Mar/2025</p>
-      <p class="boletim-desc">Panorama climático do trimestre.</p>
-      <a href="#" class="boletim-link">Ver boletim →</a>
-    </div>
+      <li>
+        <article class="boletim-card">
+          <div class="boletim-icone" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
+            <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+          </svg>     <!-- icone de calendario retirado do bootstrep -->
+          </div>
+          <h3>Boletim Trimestral</h3>
+          <p class="boletim-data">Jan – Mar/2025</p>
+          <p class="boletim-desc">Panorama climático do trimestre.</p>
+          <a href="#" class="boletim-link">Ver boletim →</a>
+        </article>
+      </li>
 
-    <div class="boletim-card">
-      <div class="boletim-icone">📄</div>
-      <h3>Boletim Anual</h3>
-      <p class="boletim-data">2024</p>
-      <p class="boletim-desc">Resumo climático do ano de 2024.</p>
-      <a href="#" class="boletim-link">Ver boletim →</a>
-    </div>
+      <li>
+        <article class="boletim-card">
+          <div class="boletim-icone" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
+            <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+          </svg>     <!-- icone de calendario retirado do bootstrep -->
+          </div>
+          <h3>Boletim Anual</h3>
+          <p class="boletim-data">2024</p>
+          <p class="boletim-desc">Resumo climático do ano de 2024.</p>
+          <a href="#" class="boletim-link">Ver boletim →</a>
+        </article>
+      </li> 
 
-    <div class="boletim-card">
-      <div class="boletim-icone">📄</div>
-      <h3>Monitoramento da Seca</h3>
-      <p class="boletim-data">Maio/2025</p>
-      <p class="boletim-desc">Acompanhamento dos índices de seca.</p>
-      <a href="#" class="boletim-link">Ver boletim →</a>
-    </div>
-
-  </div>
+      <li>
+        <article class="boletim-card">
+          <div class="boletim-icone" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
+            <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+          </svg>     <!-- icone de calendario retirado do bootstrep -->
+          </div>
+          <h3>Monitoramento da Seca</h3>
+          <p class="boletim-data">Maio/2025</p>
+          <p class="boletim-desc">Acompanhamento dos índices de seca.</p>
+          <a href="#" class="boletim-link">Ver boletim →</a>
+        </article>
+      </li>
+      
+    </ul>
+  </section>
 
   <!-- SÉRIE HISTÓRICA + METODOLOGIA -->
   <div class="layout-boletins">
 
     <!-- COLUNA PRINCIPAL: TABELA -->
-    <div class="serie-historica">
-      <h3 class="titulo-destaque">Série histórica</h3>
-      <table>
+    <section class="serie-historica" aria-labelledby="titulo-serie">
+      <h3 class="titulo-destaque" id="titulo-serie">Série histórica</h3>
+      <table aria-labelledby="titulo-serie">
+        <caption>Chuva acumulada e temperatura média por ano em Currais Novos, de 2015 a 2025.</caption>
         <thead>
           <tr>
-            <th>Ano</th>
-            <th>💧 Chuva (mm)</th>
-            <th>🌡 Temperatura média (°C)</th>
+            <th scope="col">Ano</th>
+            <th scope="col">💧 Chuva (mm)</th>
+            <th scope="col">🌡 Temperatura média (°C)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>2025 <span class="ano-obs">(até 24/05)</span></td>
+            <th scope="row">2025 <span class="ano-obs">(até 24/05)</span></th>
             <td class="celula-barra">
               <span class="valor-barra">213,4</span>
               <div class="barra-fundo"><div class="barra-chuva" style="width:16.8%"></div></div>
@@ -141,7 +197,7 @@
             </td>
           </tr>
           <tr>
-            <td>2024</td>
+            <th scope="row">2024</th>
             <td class="celula-barra">
               <span class="valor-barra">856,7</span>
               <div class="barra-fundo"><div class="barra-chuva" style="width:67.5%"></div></div>
@@ -152,7 +208,7 @@
             </td>
           </tr>
           <tr>
-            <td>2023</td>
+            <th scope="row">2023</th>
             <td class="celula-barra">
               <span class="valor-barra">642,1</span>
               <div class="barra-fundo"><div class="barra-chuva" style="width:50.6%"></div></div>
@@ -163,7 +219,7 @@
             </td>
           </tr>
           <tr>
-            <td>2022</td>
+            <th scope="row">2022</th>
             <td class="celula-barra">
               <span class="valor-barra">1.102,3</span>
               <div class="barra-fundo"><div class="barra-chuva" style="width:86.9%"></div></div>
@@ -174,7 +230,7 @@
             </td>
           </tr>
           <tr>
-            <td>2021</td>
+            <th scope="row">2021</th>
             <td class="celula-barra">
               <span class="valor-barra">1.268,5</span>
               <div class="barra-fundo"><div class="barra-chuva" style="width:100%"></div></div>
@@ -185,7 +241,7 @@
             </td>
           </tr>
           <tr>
-            <td>2020</td>
+            <th scope="row">2020</th>
             <td class="celula-barra">
               <span class="valor-barra">598,0</span>
               <div class="barra-fundo"><div class="barra-chuva" style="width:47.1%"></div></div>
@@ -196,7 +252,7 @@
             </td>
           </tr>
           <tr>
-            <td>2019</td>
+            <th scope="row">2019</th>
             <td class="celula-barra">
               <span class="valor-barra">438,6</span>
               <div class="barra-fundo"><div class="barra-chuva" style="width:34.6%"></div></div>
@@ -207,7 +263,7 @@
             </td>
           </tr>
           <tr>
-            <td>2018</td>
+            <th scope="row">2018</th>
             <td class="celula-barra">
               <span class="valor-barra">819,4</span>
               <div class="barra-fundo"><div class="barra-chuva" style="width:64.6%"></div></div>
@@ -218,7 +274,7 @@
             </td>
           </tr>
           <tr>
-            <td>2017</td>
+            <th scope="row">2017</th>
             <td class="celula-barra">
               <span class="valor-barra">693,2</span>
               <div class="barra-fundo"><div class="barra-chuva" style="width:54.6%"></div></div>
@@ -229,7 +285,7 @@
             </td>
           </tr>
           <tr>
-            <td>2016</td>
+            <th scope="row">2016</th>
             <td class="celula-barra">
               <span class="valor-barra">1.034,8</span>
               <div class="barra-fundo"><div class="barra-chuva" style="width:81.6%"></div></div>
@@ -240,7 +296,7 @@
             </td>
           </tr>
           <tr>
-            <td>2015</td>
+            <th scope="row">2015</th>
             <td class="celula-barra">
               <span class="valor-barra">627,9</span>
               <div class="barra-fundo"><div class="barra-chuva" style="width:49.5%"></div></div>
@@ -252,45 +308,49 @@
           </tr>
         </tbody>
       </table>
-    </div>
+    </section>
 
     <!-- COLUNA LATERAL: METODOLOGIA -->
-    <div>
+    <aside aria-label="Metodologia e download da série histórica">
       <div class="metodologia-card">
         <h3 class="titulo-destaque">ⓘ Metodologia</h3>
 
-        <div class="metodologia-item">
-          <div class="metodologia-icone">🛰</div>
-          <p>Dados coletados de estações meteorológicas automáticas instaladas na região.</p>
-        </div>
+        <ul class="lista-sem-marcador">
+          <li class="metodologia-item">
+            <div class="metodologia-icone" aria-hidden="true">🛰</div>
+            <p>Dados coletados de estações meteorológicas automáticas instaladas na região.</p>
+          </li>
 
-        <div class="metodologia-item">
-          <div class="metodologia-icone">💧</div>
-          <p>Os valores de chuva correspondem ao acumulado no período informado.</p>
-        </div>
+          <li class="metodologia-item">
+            <div class="metodologia-icone" aria-hidden="true">💧</div>
+            <p>Os valores de chuva correspondem ao acumulado no período informado.</p>
+          </li>
 
-        <div class="metodologia-item">
-          <div class="metodologia-icone">🌡</div>
-          <p>A temperatura média corresponde à média das temperaturas mínimas e máximas registradas no período.</p>
-        </div>
+          <li class="metodologia-item">
+            <div class="metodologia-icone" aria-hidden="true">🌡</div>
+            <p>A temperatura média corresponde à média das temperaturas mínimas e máximas registradas no período.</p>
+          </li>
 
-        <div class="metodologia-item">
-          <div class="metodologia-icone">📊</div>
-          <p>Séries históricas sujeitas a revisão após conferência e validação dos dados.</p>
-        </div>
+          <li class="metodologia-item">
+            <div class="metodologia-icone" aria-hidden="true">📊</div>
+            <p>Séries históricas sujeitas a revisão após conferência e validação dos dados.</p>
+          </li>
+        </ul>
       </div>
 
-      <button class="botao botao-primario botao-largo">⬇ Baixar série histórica (CSV)</button>
-    </div>
+      <button type="button" class="botao botao-primario botao-largo">⬇ Baixar série histórica (CSV)</button>
+    </aside>
 
   </div>
 
-</div>
+</main>
 
 <footer class="rodape">
-  <span>⏱ Atualizações a cada 30 minutos</span>
-  <span>Informação confiável para decisões conscientes.</span>
-  <span>✉ Fale conosco</span>
+  <ul class="lista-sem-marcador" style="display:flex; flex-direction:column; gap:inherit; margin:0;">
+    <li>⏱ Atualizações a cada 30 minutos</li>
+    <li>Informação confiável para decisões conscientes.</li>
+    <li>✉ Fale conosco</li>
+  </ul>
 </footer>
 
 </body>

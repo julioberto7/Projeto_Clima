@@ -3,18 +3,26 @@
    Compartilhado pelas 3 páginas: painel, boletins e alerta.
    Precisa ser carregado ANTES do CSS específico de cada página no <head>.
 
+   ABORDAGEM MOBILE-FIRST:
+   As regras "soltas" (sem media query) definem o layout para telas
+   pequenas. As media queries usam min-width e vão ACRESCENTANDO
+   complexidade conforme a tela cresce — nunca o contrário.
+   Breakpoints usados no projeto todo: 600px (tablet) e 900px (desktop).
+
    ÍNDICE:
-   1. RESET E VARIÁVEIS
+   1. RESET E VARIÁVEIS (design tokens)
    2. BASE (body, tipografia)
-   3. CABEÇALHO E RODAPÉ
-   4. CONTAINER GERAL
-   5. COMPONENTES REUTILIZÁVEIS (título de seção, botões)
-   6. RESPONSIVO (regras que valem pras 3 páginas)
+   3. LISTAS (reset genérico)
+   4. CABEÇALHO E RODAPÉ
+   5. CONTAINER GERAL
+   6. COMPONENTES REUTILIZÁVEIS (título de seção, botões, tabela, figure)
+   7. ACESSIBILIDADE (foco por teclado)
+   8. RESPONSIVO (mobile-first: min-width)
    ========================================================================== */
 
 
 /* ==========================================================================
-   1. RESET E VARIÁVEIS
+   1. RESET E VARIÁVEIS (design tokens)
    ========================================================================== */
 * {
   margin: 0;
@@ -22,7 +30,10 @@
   box-sizing: border-box;
 }
 
+html { font-size: 100%; } /* 1rem = 16px por padrão do navegador */
+
 :root {
+  /* cores */
   --cor-primaria: #274c64;
   --cor-secundaria: #2ecc71;
   --cor-terciaria: #e35c5c;
@@ -32,11 +43,28 @@
   --cor-texto: #1c1c1c;
   --cor-texto-suave: #6b7280;
   --cor-borda: rgba(0, 0, 0, 0.08);
-  --raio: 14px;
-  --sombra: 0 4px 16px rgba(0, 0, 0, 0.06);
+
+  /* tipografia */
   --fonte-corpo: 'Inter', sans-serif;
   --fonte-titulo: 'Space Grotesk', sans-serif;
   --fonte-mono: 'JetBrains Mono', monospace;
+
+  /* espaçamento (escala em rem, base 16px) */
+  --espaco-2xs: 0.25rem;  /* 4px */
+  --espaco-xs: 0.5rem;    /* 8px */
+  --espaco-sm: 0.75rem;   /* 12px */
+  --espaco-md: 1rem;      /* 16px */
+  --espaco-lg: 1.5rem;    /* 24px */
+  --espaco-xl: 2rem;      /* 32px */
+  --espaco-2xl: 2.75rem;  /* 44px */
+
+  /* raio e sombra */
+  --raio: 0.875rem;    /* 14px */
+  --raio-sm: 0.5rem;   /* 8px */
+  --sombra: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+
+  /* transição padrão, reaproveitada em vários componentes */
+  --transicao-rapida: 0.15s ease;
 }
 
 
@@ -47,50 +75,56 @@ body {
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
   font-family: var(--fonte-corpo);
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .titulo-destaque { font-family: var(--fonte-titulo); margin: 0; }
 .numerico { font-family: var(--fonte-mono); }
 
+a { color: inherit; }
+
+img { max-width: 100%; height: auto; display: block; } /* imagens fluidas por padrão */
+
 
 /* ==========================================================================
-   3. CABEÇALHO E RODAPÉ (aparecem nas 3 páginas)
+   3. LISTAS (reset genérico — usado no menu, rodapé e formulários)
+   ========================================================================== */
+.lista-sem-marcador {
+  list-style: none;
+}
+
+
+/* ==========================================================================
+   4. CABEÇALHO E RODAPÉ (aparecem nas 3 páginas)
    ========================================================================== */
 .cabecalho {
   width: 100%;
   background-color: var(--cor-primaria);
   color: white;
-  padding: 20px 40px 0;
+  padding: var(--espaco-lg) var(--espaco-md) 0;
 }
 
 .marca {
   display: flex;
   align-items: center;
-  gap: 16px;
-  font-size: 1.5rem;
+  gap: var(--espaco-md);
+  font-size: 1.25rem;
   font-weight: bold;
 }
 
-.marca .selo {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 
 .rotulo-superior {
-  margin: 0 0 2px;
-  font-size: 12px;
+  margin: 0 0 0.125rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.55);
 }
 
 .marca h1 {
-  font-size: 34px;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
 }
@@ -98,37 +132,46 @@ body {
 /* Currais Novos + última atualização */
 .linha-meta {
   display: flex;
-  gap: 32px;
-  font-size: 14px;
+  flex-direction: column;
+  gap: var(--espaco-xs);
+  font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.85);
   background: rgba(255, 255, 255, 0.06);
-  margin: 20px -40px 0;
-  padding: 16px 40px;
+  margin: var(--espaco-md) calc(var(--espaco-md) * -1) 0;
+  padding: var(--espaco-md);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.item-meta { display: flex; align-items: center; gap: 8px; }
+.item-meta { display: flex; align-items: center; gap: var(--espaco-xs); }
 .item-meta strong { color: #fff; font-weight: 600; }
 
 /* menu de navegação entre as 3 páginas, dentro do cabeçalho */
 .nav-paginas {
   display: flex;
-  gap: 24px;
-  margin-top: 14px;
-  padding-top: 4px;
-  padding-bottom: 2px;
+  flex-wrap: wrap;
+  gap: var(--espaco-md) var(--espaco-lg);
+  margin-top: var(--espaco-md);
+  padding-top: 0.25rem;
+  padding-bottom: 0.125rem;
 }
 
 .nav-paginas a {
-  font-size: 13px;
+  display: inline-block;
+  font-size: 0.8rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.65);
   text-decoration: none;
-  padding-bottom: 12px;
+  padding-bottom: 0.75rem;
   border-bottom: 2px solid transparent;
+  transition: color var(--transicao-rapida), border-color var(--transicao-rapida);
 }
 
 .nav-paginas a:hover { color: rgba(255, 255, 255, 0.9); }
+
+.nav-paginas a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
 
 .nav-paginas a.ativo {
   color: #fff;
@@ -140,67 +183,131 @@ body {
   background-color: var(--cor-primaria);
   color: white;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 20px 40px;
-  font-size: 12px;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+  padding: var(--espaco-lg) var(--espaco-md);
+  font-size: 0.75rem;
 }
 
 
 /* ==========================================================================
-   4. CONTAINER GERAL
+   5. CONTAINER GERAL
    ========================================================================== */
 .conteudo {
-  max-width: 1180px;
+  max-width: 73.75rem; /* 1180px */
   margin: 0 auto;
-  padding: 28px 40px 40px;
+  padding: var(--espaco-lg) var(--espaco-md) var(--espaco-xl);
 }
 
 
 /* ==========================================================================
-   5. COMPONENTES REUTILIZÁVEIS (usados nas 3 páginas)
+   6. COMPONENTES REUTILIZÁVEIS (usados nas 3 páginas)
    ========================================================================== */
 
 /* título de seção com linha ao lado (ex: "Condições agora", "Boletins recentes") */
-.titulo-secao { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-.titulo-secao h2 { font-size: 15px; font-weight: 700; white-space: nowrap; color: var(--cor-primaria); }
+.titulo-secao { display: flex; align-items: center; gap: var(--espaco-md); margin-bottom: var(--espaco-md); }
+.titulo-secao h2 { font-size: 0.95rem; font-weight: 700; white-space: nowrap; color: var(--cor-primaria); }
 .titulo-secao .linha-titulo { flex: 1; height: 1px; background: var(--cor-borda); }
 
 /* botões */
 .botao {
   font-family: var(--fonte-corpo);
-  font-size: 13px;
+  font-size: 0.85rem;
   font-weight: 600;
-  padding: 10px 18px;
-  border-radius: 8px;
+  padding: 0.65rem 1.1rem;
+  border-radius: var(--raio-sm);
   border: none;
   cursor: pointer;
+  transition: background-color var(--transicao-rapida), filter var(--transicao-rapida);
 }
 
 .botao-primario { background: var(--cor-primaria); color: #fff; }
-.botao-secundario { background: transparent; color: var(--cor-primaria); border: 1px solid var(--cor-borda); }
-.botao-largo { width: 100%; margin-top: 12px; }
+.botao-primario:hover { filter: brightness(1.12); }
 
-/* tabela padrão (usada nas 3 páginas, com pequenos ajustes locais em cada CSS específico) */
-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.botao-secundario { background: transparent; color: var(--cor-primaria); border: 1px solid var(--cor-borda); }
+.botao-secundario:hover { background: rgba(39, 76, 100, 0.06); }
+
+.botao:focus-visible {
+  outline: 2px solid var(--cor-primaria);
+  outline-offset: 2px;
+}
+
+.botao-largo { width: 100%; margin-top: var(--espaco-sm); }
+
+/* tabela padrão (usada nas 3 páginas, com ajustes locais em cada CSS específico) */
+table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+
+caption {
+  text-align: left;
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: var(--espaco-sm);
+}
 
 thead th {
   text-align: left;
-  font-size: 12px;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--cor-texto-suave);
   border-bottom: 1px solid var(--cor-borda);
+  padding: var(--espaco-xs) var(--espaco-2xs);
 }
 
-tbody td { padding: 12px 8px; border-bottom: 1px solid var(--cor-borda); }
+tbody td { padding: var(--espaco-sm) var(--espaco-2xs); border-bottom: 1px solid var(--cor-borda); }
 tbody tr:last-child td { border-bottom: none; }
+
+/* figura de imagem (usada onde houver foto no conteúdo) */
+.figura-conteudo {
+  margin: 0 0 var(--espaco-lg);
+  background: var(--cor-cartao);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+}
+
+.figura-conteudo img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.figura-conteudo figcaption {
+  padding: var(--espaco-sm) var(--espaco-md);
+  font-size: 0.75rem;
+  color: var(--cor-texto-suave);
+}
 
 
 /* ==========================================================================
-   6. RESPONSIVO (regras válidas nas 3 páginas)
+   7. ACESSIBILIDADE (foco por teclado, visível em qualquer elemento)
    ========================================================================== */
-@media (max-width: 560px) {
-  .cabecalho, .conteudo, .rodape { padding-left: 20px; padding-right: 20px; }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--cor-primaria);
+  outline-offset: 2px;
+}
+
+
+/* ==========================================================================
+   8. RESPONSIVO (mobile-first: as regras abaixo ACRESCENTAM comportamento
+   conforme a tela cresce; a base acima já cobre o celular)
+   ========================================================================== */
+
+/* tablet (>= 600px) */
+@media (min-width: 37.5em) {
+  .linha-meta { flex-direction: row; gap: var(--espaco-xl); }
+  .rodape { flex-direction: row; justify-content: space-between; }
+}
+
+/* desktop (>= 900px) */
+@media (min-width: 56.25em) {
+  .cabecalho { padding: var(--espaco-lg) var(--espaco-xl) 0; }
+  .linha-meta { margin: var(--espaco-md) calc(var(--espaco-xl) * -1) 0; padding: var(--espaco-md) var(--espaco-xl); }
+  .conteudo { padding: var(--espaco-xl) var(--espaco-xl) 2.5rem; }
+  .rodape { padding: var(--espaco-lg) var(--espaco-xl); }
+  .marca h1 { font-size: 2.125rem; }
 }

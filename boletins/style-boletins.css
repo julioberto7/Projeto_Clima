@@ -1,121 +1,144 @@
 /* ==========================================================================
    OBSERVATÓRIO DO CLIMA — style-boletins.css
    Estilos EXCLUSIVOS da página boletins/index.html
-   Precisa do style-base.css carregado antes (variáveis, cabeçalho, rodapé,
-   botões e título de seção vêm de lá).
+   Precisa do style-base.css carregado antes.
+   Mobile-first: base = celular; min-width acrescenta colunas.
    ========================================================================== */
 
 /* título "Boletins e séries históricas" no topo da página */
 .pagina-titulo {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 24px;
+  gap: var(--espaco-md);
+  margin-bottom: var(--espaco-lg);
 }
 
 .pagina-titulo-icone {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--raio-sm);
   background: var(--cor-cartao);
   box-shadow: var(--sombra);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 1.125rem;
+  flex-shrink: 0;
 }
 
-.pagina-titulo h2 { font-size: 22px; color: var(--cor-texto); }
+.pagina-titulo h2 { font-size: 1.375rem; color: var(--cor-texto); }
 
-/* barra de filtros */
+/* barra de filtros — 1 coluna no celular */
 .filtros {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--espaco-sm);
   background: var(--cor-cartao);
   border-radius: var(--raio);
   box-shadow: var(--sombra);
-  padding: 14px 18px;
-  margin-bottom: 28px;
+  padding: var(--espaco-md);
+  margin-bottom: var(--espaco-xl);
 }
 
 .filtro-campo {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 13px;
+  gap: var(--espaco-xs);
+  font-size: 0.8rem;
   color: var(--cor-texto-suave);
 }
 
 .filtro-campo select,
 .filtro-campo input {
+  width: 100%;
   font-family: var(--fonte-corpo);
-  font-size: 13px;
-  padding: 8px 10px;
-  border-radius: 8px;
+  font-size: 0.8rem;
+  padding: var(--espaco-xs) var(--espaco-sm);
+  border-radius: var(--raio-sm);
   border: 1px solid var(--cor-borda);
   background: #fff;
   color: var(--cor-texto);
+  transition: border-color var(--transicao-rapida);
 }
 
-/* grade de boletins recentes */
+.filtro-campo select:hover,
+.filtro-campo input:hover { border-color: var(--cor-primaria); }
+
+/* grade de boletins recentes — 1 coluna no celular */
 .boletins-recentes {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-  margin-bottom: 28px;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-md);
+  margin-bottom: var(--espaco-xl);
 }
 
 .boletim-card {
   background: var(--cor-cartao);
   border-radius: var(--raio);
   box-shadow: var(--sombra);
-  padding: 18px;
+  padding: var(--espaco-md);
+  transition: transform var(--transicao-rapida), box-shadow var(--transicao-rapida);
+}
+
+.boletim-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.1);
 }
 
 .boletim-icone {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
+  width: 2.125rem;
+  height: 2.125rem;
+  border-radius: var(--raio-sm);
   background: rgba(39, 76, 100, 0.08);
   color: var(--cor-primaria);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
+  margin-bottom: var(--espaco-sm);
 }
 
-.boletim-card h3 { font-size: 14px; margin-bottom: 4px; }
-.boletim-data { font-size: 12px; color: var(--cor-texto-suave); margin-bottom: 8px; }
-.boletim-desc { font-size: 12px; color: var(--cor-texto-suave); margin-bottom: 12px; line-height: 1.4; }
-.boletim-link { font-size: 12px; font-weight: 600; color: var(--cor-primaria); text-decoration: none; }
+.boletim-card h3 { font-size: 0.875rem; margin-bottom: 0.25rem; }
+.boletim-data { font-size: 0.75rem; color: var(--cor-texto-suave); margin-bottom: var(--espaco-xs); }
+.boletim-desc { font-size: 0.75rem; color: var(--cor-texto-suave); margin-bottom: var(--espaco-sm); line-height: 1.4; }
 
-/* duas colunas: série histórica + metodologia */
+.boletim-link {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transicao-rapida);
+}
+
+.boletim-link:hover { border-color: var(--cor-primaria); }
+
+/* série histórica + metodologia — 1 coluna no celular */
 .layout-boletins {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 28px;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-xl);
 }
 
 .serie-historica {
   background: var(--cor-cartao);
   border-radius: var(--raio);
   box-shadow: var(--sombra);
-  padding: 22px;
+  padding: var(--espaco-lg);
+  overflow-x: auto;
 }
 
-.serie-historica h3 { font-size: 16px; margin-bottom: 14px; color: var(--cor-primaria); }
+.serie-historica h3 { font-size: 1rem; margin-bottom: var(--espaco-sm); color: var(--cor-primaria); }
 
-.ano-obs { font-size: 11px; color: var(--cor-texto-suave); }
+.ano-obs { font-size: 0.7rem; color: var(--cor-texto-suave); }
 
 /* célula da tabela com barrinha de valor */
-.celula-barra { min-width: 140px; }
-.valor-barra { font-family: var(--fonte-mono); font-size: 13px; display: block; margin-bottom: 4px; }
+.celula-barra { min-width: 8.75rem; }
+.valor-barra { font-family: var(--fonte-mono); font-size: 0.8rem; display: block; margin-bottom: 0.25rem; }
 
 .barra-fundo {
   width: 100%;
-  height: 6px;
+  height: 0.375rem;
   border-radius: 3px;
   background: var(--cor-borda);
   overflow: hidden;
@@ -129,42 +152,50 @@
   background: var(--cor-cartao);
   border-radius: var(--raio);
   box-shadow: var(--sombra);
-  padding: 20px;
-  margin-bottom: 16px;
+  padding: var(--espaco-md);
+  margin-bottom: var(--espaco-md);
 }
 
-.metodologia-card h3 { font-size: 15px; margin-bottom: 14px; color: var(--cor-primaria); }
+.metodologia-card h3 { font-size: 0.95rem; margin-bottom: var(--espaco-sm); color: var(--cor-primaria); }
 
 .metodologia-item {
   display: flex;
-  gap: 10px;
+  gap: var(--espaco-sm);
   align-items: flex-start;
-  margin-bottom: 14px;
+  margin-bottom: var(--espaco-sm);
 }
 
 .metodologia-item:last-child { margin-bottom: 0; }
 
 .metodologia-icone {
-  width: 28px;
-  height: 28px;
+  width: 1.75rem;
+  height: 1.75rem;
   flex-shrink: 0;
-  border-radius: 8px;
+  border-radius: var(--raio-sm);
   background: rgba(39, 76, 100, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
+  font-size: 0.8rem;
 }
 
-.metodologia-item p { font-size: 12px; color: var(--cor-texto-suave); line-height: 1.4; }
+.metodologia-item p { font-size: 0.75rem; color: var(--cor-texto-suave); line-height: 1.4; }
 
 
-/* ===== RESPONSIVO (só dos boletins) ===== */
-@media (max-width: 900px) {
+/* ==========================================================================
+   RESPONSIVO (mobile-first: acrescentando colunas conforme a tela cresce)
+   ========================================================================== */
+
+/* tablet (>= 600px) */
+@media (min-width: 37.5em) {
+  .filtros { flex-direction: row; flex-wrap: wrap; align-items: center; }
+  .filtro-campo { width: auto; }
+  .filtro-campo select, .filtro-campo input { width: auto; }
   .boletins-recentes { grid-template-columns: repeat(2, 1fr); }
-  .layout-boletins { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 560px) {
-  .boletins-recentes { grid-template-columns: 1fr; }
+/* desktop (>= 900px) */
+@media (min-width: 56.25em) {
+  .boletins-recentes { grid-template-columns: repeat(5, 1fr); }
+  .layout-boletins { grid-template-columns: 2fr 1fr; }
 }

@@ -1,47 +1,56 @@
 /* ==========================================================================
    OBSERVATÓRIO DO CLIMA — style-painel.css
    Estilos EXCLUSIVOS da página painel/index.html
-   Precisa do style-base.css carregado antes (variáveis, cabeçalho, rodapé,
-   botões e título de seção vêm de lá).
+   Precisa do style-base.css carregado antes.
+   Mobile-first: base = celular; min-width acrescenta colunas.
    ========================================================================== */
 
 /* faixa de alerta vermelha */
 .faixa-alerta {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: var(--espaco-md);
   background: var(--cor-terciaria);
   color: #fff;
   border-radius: var(--raio);
-  padding: 16px 20px;
-  margin-bottom: 28px;
+  padding: var(--espaco-md) var(--espaco-lg);
+  margin-bottom: var(--espaco-xl);
 }
 
-.faixa-alerta .icone { font-size: 20px; }
-.faixa-alerta strong { display: block; margin-bottom: 2px; }
-.faixa-alerta span { font-size: 14px; color: rgba(255, 255, 255, 0.9); }
+.faixa-alerta .icone { font-size: 1.25rem; }
+.faixa-alerta strong { display: block; margin-bottom: 0.125rem; }
+.faixa-alerta span { font-size: 0.875rem; color: rgba(255, 255, 255, 0.9); }
 
-/* duas colunas: conteúdo principal + coluna lateral */
+/* imagem de destaque da região (figure) */
+.figura-conteudo img { aspect-ratio: 16 / 8; }
+
+/* no celular, conteúdo principal e coluna lateral empilham (ver base sem grid) */
 .colunas-painel {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 28px;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-xl);
 }
 
-/* cartões de condição (Temperatura / Chuva / Umidade / Vento) */
+/* cartões de condição (Temperatura / Chuva / Umidade / Vento) — 1 coluna no celular */
 .condicoes {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-bottom: 28px;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-md);
+  margin-bottom: var(--espaco-xl);
 }
 
 .cartao-condicao {
   background: var(--cor-cartao);
   border-radius: var(--raio);
   box-shadow: var(--sombra);
-  padding: 18px;
+  padding: var(--espaco-md);
   border-top: 3px solid var(--cor-primaria);
+  transition: transform var(--transicao-rapida), box-shadow var(--transicao-rapida);
+}
+
+.cartao-condicao:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.1);
 }
 
 .cartao-condicao.temperatura { border-top-color: var(--cor-terciaria); }
@@ -50,50 +59,39 @@
 .cartao-condicao.vento { border-top-color: var(--cor-primaria); }
 
 .cartao-condicao .rotulo {
-  font-size: 13px;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--cor-texto-suave);
-  margin-bottom: 10px;
+  margin-bottom: var(--espaco-sm);
 }
 
 .medidor-wrap {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
+  gap: var(--espaco-sm);
+  margin-bottom: var(--espaco-xs);
 }
 
-/* gauge circular: gira o SVG -90° pra o traço começar no topo, não na direita */
-.medidor-arco { transform: rotate(-90deg); flex-shrink: 0; }
-
-.medidor-arco .trilho {
-  fill: none;
-  stroke: var(--cor-borda);
-  stroke-width: 5;
+/* ícone de imagem no lugar do antigo mostrador circular em SVG */
+.icone-condicao {
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  object-fit: contain;
 }
-
-.medidor-arco .valor {
-  fill: none;
-  stroke: var(--cor-primaria);
-  stroke-width: 5;
-}
-
-.cartao-condicao.temperatura .medidor-arco .valor { stroke: var(--cor-terciaria); }
-.cartao-condicao.chuva .medidor-arco .valor { stroke: #4c7fb0; }
-.cartao-condicao.umidade .medidor-arco .valor { stroke: var(--cor-secundaria); }
 
 /* valor numérico e unidade ao lado do medidor */
-.medidor-wrap .valor { font-size: 22px; font-weight: 700; }
-.medidor-wrap .unidade { font-size: 13px; color: var(--cor-texto-suave); margin-left: 2px; }
+.medidor-wrap .valor { font-size: 1.375rem; font-weight: 700; }
+.medidor-wrap .unidade { font-size: 0.8rem; color: var(--cor-texto-suave); margin-left: 0.125rem; }
 
 /* linha de baixo do cartão (ex: Máx/Mín) */
 .cartao-condicao .rodape-cartao {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--cor-texto-suave);
   border-top: 1px solid var(--cor-borda);
-  padding-top: 8px;
+  padding-top: var(--espaco-xs);
 }
 
 /* gráfico semanal */
@@ -101,23 +99,22 @@
   background: var(--cor-cartao);
   border-radius: var(--raio);
   box-shadow: var(--sombra);
-  padding: 22px;
-  margin-bottom: 28px;
+  padding: var(--espaco-lg);
+  margin-bottom: var(--espaco-xl);
 }
 
 .cabecalho-grafico {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+  margin-bottom: var(--espaco-sm);
 }
 
-.cabecalho-grafico h3 { font-size: 16px; color: var(--cor-primaria); }
+.cabecalho-grafico h3 { font-size: 1rem; color: var(--cor-primaria); }
 
-.legenda { display: flex; gap: 16px; font-size: 12px; color: var(--cor-texto-suave); }
-.legenda span { display: flex; align-items: center; gap: 6px; }
-.legenda i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.legenda { display: flex; flex-wrap: wrap; gap: var(--espaco-md); font-size: 0.75rem; color: var(--cor-texto-suave); }
+.legenda span { display: flex; align-items: center; gap: var(--espaco-xs); }
+.legenda i { width: 0.625rem; height: 0.625rem; border-radius: 3px; display: inline-block; }
 
 /* cores batendo com as usadas dentro do próprio SVG (fill="#C1502E" etc.) */
 .legenda .maxima i { background: #C1502E; }
@@ -127,10 +124,10 @@
 .rotulos-dias {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 0.7rem;
   color: var(--cor-texto-suave);
-  margin-top: 8px;
-  padding: 0 8px;
+  margin-top: var(--espaco-xs);
+  padding: 0 var(--espaco-xs);
 }
 
 /* tabela de previsão */
@@ -138,10 +135,11 @@
   background: var(--cor-cartao);
   border-radius: var(--raio);
   box-shadow: var(--sombra);
-  padding: 22px;
+  padding: var(--espaco-lg);
+  overflow-x: auto; /* tabela larga não quebra layout no celular */
 }
 
-.cartao-previsao h3 { font-size: 16px; margin-bottom: 14px; color: var(--cor-primaria); }
+.cartao-previsao h3 { font-size: 1rem; margin-bottom: var(--espaco-sm); color: var(--cor-primaria); }
 
 .numero { font-family: var(--fonte-mono); }
 .celula-temp .maxima { color: #C1502E; font-weight: 600; }
@@ -152,43 +150,43 @@
   background: var(--cor-cartao);
   border-radius: var(--raio);
   box-shadow: var(--sombra);
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: var(--espaco-md);
+  margin-bottom: var(--espaco-md);
 }
 
-.cartao-lateral h3 { font-size: 15px; margin-bottom: 14px; color: var(--cor-primaria); }
+.cartao-lateral h3 { font-size: 0.95rem; margin-bottom: var(--espaco-sm); color: var(--cor-primaria); }
 
 .linha-regiao {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 10px;
-  padding: 12px 0;
+  gap: var(--espaco-sm);
+  padding: var(--espaco-sm) 0;
   border-bottom: 1px solid var(--cor-borda);
 }
 
 .linha-regiao:last-of-type { border-bottom: none; }
 
 .nome-regiao {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 4px;
+  gap: var(--espaco-xs);
+  margin-bottom: 0.25rem;
 }
 
-.ponto { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.ponto { width: 0.5rem; height: 0.5rem; border-radius: 50%; display: inline-block; }
 .ponto.normal { background: var(--cor-secundaria); }
 .ponto.atencao { background: var(--cor-alerta); }
 .ponto.alerta { background: var(--cor-terciaria); }
 
-.descricao-regiao { font-size: 12px; color: var(--cor-texto-suave); }
+.descricao-regiao { font-size: 0.75rem; color: var(--cor-texto-suave); }
 
 .selo-status {
-  font-size: 11px;
+  font-size: 0.7rem;
   font-weight: 700;
-  padding: 4px 10px;
+  padding: 0.25rem 0.625rem;
   border-radius: 999px;
   white-space: nowrap;
 }
@@ -197,25 +195,64 @@
 .selo-status.atencao { background: rgba(227, 162, 61, 0.18); color: #a5701f; }
 .selo-status.alerta { background: rgba(227, 92, 92, 0.15); color: var(--cor-terciaria); }
 
-.nota { font-size: 12px; color: var(--cor-texto-suave); margin-top: 8px; }
+.nota { font-size: 0.75rem; color: var(--cor-texto-suave); margin-top: var(--espaco-xs); }
 
 .nota-rodape {
   display: flex;
-  gap: 8px;
-  font-size: 12px;
+  gap: var(--espaco-xs);
+  font-size: 0.75rem;
   color: var(--cor-texto-suave);
   line-height: 1.5;
 }
 
-.nota-rodape a { color: var(--cor-primaria); text-decoration: none; font-weight: 600; }
+.nota-rodape a {
+  color: var(--cor-primaria);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color var(--transicao-rapida);
+}
+
+.nota-rodape a:hover { color: var(--cor-terciaria); }
 
 
-/* ===== RESPONSIVO (só do painel) ===== */
-@media (max-width: 900px) {
-  .colunas-painel { grid-template-columns: 1fr; }
+/* ==========================================================================
+   RESPONSIVO (mobile-first: acrescentando colunas conforme a tela cresce)
+   ========================================================================== */
+
+/* tablet (>= 600px) */
+@media (min-width: 37.5em) {
   .condicoes { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 560px) {
-  .condicoes { grid-template-columns: 1fr; }
+/* desktop (>= 900px) */
+@media (min-width: 56.25em) {
+  .colunas-painel { grid-template-columns: 2fr 1fr; }
+  .condicoes { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Container para deixar o mapa responsivo na tela */
+.mapa-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+
+
+/* 1. Efeito ao passar o mouse em qualquer uma das mesorregiões do RN */
+path[id^="meso_"] {
+    transition: fill 0.3s, stroke 0.3s;
+    cursor: pointer;
+}
+
+path[id^="meso_"]:hover {
+    fill: #D82B40 !important; /* Muda a cor da região para vermelho ao passar o mouse */
+    stroke: #1F1A17;
+    stroke-width: 500; /* Destaca as bordas */
+}
+
+/* 2. Estilizar uma mesorregião específica pelo ID (Ex: Leste Potiguar, Central, etc.) */
+#meso_2304 {
+    /* fill: #4CAF50; */ /* Remova as barras se quiser pintar esta região de verde por padrão */
 }
