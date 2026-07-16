@@ -1,9 +1,4 @@
-/* ==========================================================================
-   OBSERVATÓRIO DO CLIMA — style-painel.css
-   Estilos EXCLUSIVOS da página painel/index.html
-   Precisa do style-base.css carregado antes.
-   Mobile-first: base = celular; min-width acrescenta colunas.
-   ========================================================================== */
+
 
 /* faixa de alerta vermelha */
 .faixa-alerta {

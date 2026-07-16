@@ -1,25 +1,3 @@
-/* ==========================================================================
-   OBSERVATÓRIO DO CLIMA — style-base.css
-   Compartilhado pelas 3 páginas: painel, boletins e alerta.
-   Precisa ser carregado ANTES do CSS específico de cada página no <head>.
-
-   ABORDAGEM MOBILE-FIRST:
-   As regras "soltas" (sem media query) definem o layout para telas
-   pequenas. As media queries usam min-width e vão ACRESCENTANDO
-   complexidade conforme a tela cresce — nunca o contrário.
-   Breakpoints usados no projeto todo: 600px (tablet) e 900px (desktop).
-
-   ÍNDICE:
-   1. RESET E VARIÁVEIS (design tokens)
-   2. BASE (body, tipografia)
-   3. LISTAS (reset genérico)
-   4. CABEÇALHO E RODAPÉ
-   5. CONTAINER GERAL
-   6. COMPONENTES REUTILIZÁVEIS (título de seção, botões, tabela, figure)
-   7. ACESSIBILIDADE (foco por teclado)
-   8. RESPONSIVO (mobile-first: min-width)
-   ========================================================================== */
-
 
 /* ==========================================================================
    1. RESET E VARIÁVEIS (design tokens)

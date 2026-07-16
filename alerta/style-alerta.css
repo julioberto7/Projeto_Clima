@@ -1,15 +1,4 @@
-/* ==========================================================================
-   OBSERVATÓRIO DO CLIMA — style-alerta.css
-   Estilos EXCLUSIVOS da página alerta/index.html
-   Precisa do style-base.css carregado antes.
-   Mobile-first: base = celular; min-width acrescenta colunas.
 
-   NOTA SOBRE BOOTSTRAP: o formulário "Receber alertas" desta página usa
-   classes do Bootstrap (.form-control, .form-check, .btn) para os campos
-   e o botão de envio — ver README.md para o detalhamento do que é
-   Bootstrap e o que é autoral. As regras abaixo SÓ ajustam detalhes
-   (cor de foco, espaçamento) que o Bootstrap não cobre sozinho.
-   ========================================================================== */
 
 /* topo: cartão de alerta + área afetada — 1 coluna no celular */
 .topo-alerta {
