@@ -57,9 +57,7 @@ img { max-width: 100%; height: auto; display: block; } /* imagens fluidas por pa
 }
 
 
-/* ==========================================================================
-   4. CABEÇALHO E RODAPÉ (aparecem nas 3 páginas)
-   ========================================================================== */
+
 .cabecalho {
   width: 100%;
   background-color: var(--cor-primaria);
@@ -145,9 +143,9 @@ img { max-width: 100%; height: auto; display: block; } /* imagens fluidas por pa
 }
 
 
-/* ==========================================================================
-   5. CONTAINER GERAL
-   ========================================================================== */
+/* 
+    CONTAINER GERAL
+   */
 .conteudo {
   max-width: 73.75rem; /* 1180px */
   margin: 0 auto;
@@ -155,9 +153,9 @@ img { max-width: 100%; height: auto; display: block; } /* imagens fluidas por pa
 }
 
 
-/* ==========================================================================
-   6. COMPONENTES REUTILIZÁVEIS (usados nas 3 páginas)
-   ========================================================================== */
+
+   
+   
 
 /* título de seção com linha ao lado (ex: "Condições agora", "Boletins recentes") */
 .titulo-secao { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
