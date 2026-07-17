@@ -38,10 +38,5 @@ resolve bem, enquanto o resto do projeto continua demonstrando CSS autoral
 
 
 
-links utilizados: 
-
-orientações do Ministério da Saúde → https://www.gov.br/saude/pt-br
-
-Instituto Nacional de Meteorologia → https://portal.inmet.gov.br/
 
 
