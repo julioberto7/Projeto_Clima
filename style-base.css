@@ -143,9 +143,7 @@ img { max-width: 100%; height: auto; display: block; } /* imagens fluidas por pa
 }
 
 
-/* 
-    CONTAINER GERAL
-   */
+/*  CONTAINER GERAL */
 .conteudo {
   max-width: 73.75rem; /* 1180px */
   margin: 0 auto;
