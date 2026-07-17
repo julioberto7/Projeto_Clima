@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Observatório do Clima — Currais Novos</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style-base.css">
 <link rel="stylesheet" href="style-painel.css">
 </head>
@@ -103,64 +101,11 @@
 
       <div class="cartao-grafico">
         <div class="cabecalho-grafico">
-          <h3 class="titulo-destaque">Resumo semanal</h3>
-          <div class="legenda">
-            <span class="maxima"><i></i> Máx (°C)</span>
-            <span class="minima"><i></i> Mín (°C)</span>
-            <span class="chuva"><i></i> Chuva (mm)</span>
+          
+             <img class="icone-condicao" src="imagens/icones/resumo_semanal.png" alt="" width="800" height="400" loading="lazy">
+
           </div>
         </div>
-
-        
-        <svg viewBox="10 0 700 220" width="100%" height="220" preserveAspectRatio="none" role="img" aria-label="Gráfico de temperaturas máxima e mínima e chuva ao longo de 7 dias">
-          <line x1="0" y1="40" x2="700" y2="40" stroke="rgba(43,33,24,0.10)" stroke-width="1"/>
-          <line x1="0" y1="100" x2="700" y2="100" stroke="rgba(43,33,24,0.10)" stroke-width="1"/>
-          <line x1="0" y1="160" x2="700" y2="160" stroke="rgba(43,33,24,0.10)" stroke-width="1"/>
-
-          <g fill="#E3A23D" opacity="0.35">
-            <rect x="35" y="216" width="26" height="0"></rect>
-            <rect x="15" y="213" width="26" height="3"></rect>
-            <rect x="235" y="200" width="26" height="16"></rect>
-            <rect x="335" y="216" width="26" height="0"></rect>
-            <rect x="435" y="182" width="26" height="34"></rect>
-            <rect x="535" y="209" width="26" height="7"></rect>
-            <rect x="635" y="216" width="26" height="0"></rect>
-          </g>
-
-         
-          <polyline fill="none" stroke="#C1202E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"
-            points="48,45 148,42 248,52 348,56 448,53 548,44 648,49"/>
-          <polyline fill="none" stroke="#1F3A3D" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"
-            points="48,118 148,115 248,121 348,127 448,128 548,120 648,119"/>
-
-          <g fill="#C1502E">
-            <circle cx="48" cy="45" r="3.5"/><circle cx="148" cy="42" r="3.5"/><circle cx="248" cy="52" r="3.5"/>
-            <circle cx="348" cy="56" r="3.5"/><circle cx="448" cy="53" r="3.5"/><circle cx="548" cy="44" r="3.5"/><circle cx="648" cy="49" r="3.5"/>
-          </g>
-          <g fill="#1F3A3D">
-            <circle cx="48" cy="118" r="3.5"/><circle cx="148" cy="115" r="3.5"/><circle cx="248" cy="121" r="3.5"/>
-            <circle cx="348" cy="127" r="3.5"/><circle cx="448" cy="128" r="3.5"/><circle cx="548" cy="120" r="3.5"/><circle cx="648" cy="119" r="3.5"/>
-          </g>
-
-          <g font-family="JetBrains Mono, monospace" font-size="11" fill="#C1502E" font-weight="700">
-            <text x="48" y="34" text-anchor="middle">31,0</text><text x="148" y="31" text-anchor="middle">31,5</text>
-            <text x="248" y="41" text-anchor="middle">30,2</text><text x="348" y="45" text-anchor="middle">29,7</text>
-            <text x="448" y="42" text-anchor="middle">30,1</text><text x="548" y="33" text-anchor="middle">31,3</text>
-            <text x="648" y="38" text-anchor="middle">30,8</text>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="11" fill="#1F3A3D" font-weight="700">
-            <text x="48" y="107" text-anchor="middle">21,6</text><text x="148" y="104" text-anchor="middle">21,9</text>
-            <text x="248" y="110" text-anchor="middle">21,4</text><text x="348" y="116" text-anchor="middle">20,8</text>
-            <text x="448" y="117" text-anchor="middle">20,7</text><text x="548" y="109" text-anchor="middle">21,2</text>
-            <text x="648" y="108" text-anchor="middle">21,3</text>
-          </g>
-        </svg>
-
-        <div class="rotulos-dias">
-          <span>Sáb 04/07</span><span>Dom 05/07</span><span>Seg 06/07</span><span>Ter 07/07</span>
-          <span>Qua 08/07</span><span>Qui 09/07</span><span>Sex 10/07</span>
-        </div>
-      </div>
 
       <div class="cartao-previsao">
         <h3 class="titulo-destaque" id="titulo-previsao">Previsão para os próximos dias</h3>
@@ -594,8 +539,7 @@
       </div>
 
       <p class="nota-rodape">
-        ⓘ <span><strong>Metodologia:</strong> dados provenientes de estações automáticas, satélites e modelos numéricos.
-        <a href="https://portal.inmet.gov.br/" target="_blank" rel="noopener noreferrer">Saiba mais no portal do INMET →</a></span>
+         <span><strong>Metodologia:</strong> dados provenientes de estações automáticas, satélites e modelos numéricos.
       </p>
     </aside>
 
@@ -604,9 +548,9 @@
 
 <footer class="rodape">
   <ul class="lista-sem-marcador" style="display:flex; flex-direction:column; gap:inherit; margin:0;">
-    <li>⏱ Atualizações a cada 30 minutos</li>
+    <li> Atualizações a cada 30 minutos</li>
     <li>Informação confiável para decisões conscientes.</li>
-    <li>✉ Fale conosco</li>
+    <li> Fale conosco</li>
   </ul>
 </footer>
 

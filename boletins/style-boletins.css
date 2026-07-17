@@ -113,33 +113,6 @@
   gap: 2rem;
 }
 
-.serie-historica {
-  background: var(--cor-cartao);
-  border-radius: var(--raio);
-  box-shadow: var(--sombra);
-  padding: 1.5rem;
-  overflow-x: auto;
-}
-
-.serie-historica h3 { font-size: 1rem; margin-bottom: 0.75rem; color: var(--cor-primaria); }
-
-.ano-obs { font-size: 0.7rem; color: var(--cor-texto-suave); }
-
-/* célula da tabela com barrinha de valor */
-.celula-barra { min-width: 8.75rem; }
-.valor-barra { font-family: var(--fonte-mono); font-size: 0.8rem; display: block; margin-bottom: 0.25rem; }
-
-.barra-fundo {
-  width: 100%;
-  height: 0.375rem;
-  border-radius: 3px;
-  background: var(--cor-borda);
-  overflow: hidden;
-}
-
-.barra-chuva { height: 100%; border-radius: 3px; background: #4c7fb0; }
-.barra-temp { height: 100%; border-radius: 3px; background: var(--cor-terciaria); }
-
 /* cartão de metodologia */
 .metodologia-card {
   background: var(--cor-cartao);

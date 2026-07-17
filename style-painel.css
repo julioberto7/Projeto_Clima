@@ -90,32 +90,6 @@
   margin-bottom: 2rem;
 }
 
-.cabecalho-grafico {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
-.cabecalho-grafico h3 { font-size: 1rem; color: var(--cor-primaria); }
-
-.legenda { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.75rem; color: var(--cor-texto-suave); }
-.legenda span { display: flex; align-items: center; gap: 0.5rem; }
-.legenda i { width: 0.625rem; height: 0.625rem; border-radius: 3px; display: inline-block; }
-
-/* cores batendo com as usadas dentro do próprio SVG (fill="#C1502E" etc.) */
-.legenda .maxima i { background: #C1502E; }
-.legenda .minima i { background: #1F3A3D; }
-.legenda .chuva i { background: #E3A23D; }
-
-.rotulos-dias {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.7rem;
-  color: var(--cor-texto-suave);
-  margin-top: 0.5rem;
-  padding: 0 0.5rem;
-}
 
 /* tabela de previsão */
 .cartao-previsao {
